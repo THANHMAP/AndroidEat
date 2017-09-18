@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1012114466921",
+    "firebase_url": "https://androideat-586c5.firebaseio.com",
+    "project_id": "androideat-586c5",
+    "storage_bucket": "androideat-586c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012114466921:android:06e2c49cefb08c25",
+        "android_client_info": {
+          "package_name": "company.phuminh.com.foodeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012114466921-q07b3rluo7k8d6ib4bvamv1k02jdo8pt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "company.phuminh.com.foodeat",
+            "certificate_hash": "ca40ff953d036f1dc93904b3f7c553e2f37e2dc5"
+          }
+        },
+        {
+          "client_id": "1012114466921-16skmngig9lddt6iivh6c7v93f3n2pb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFMLXqKjReatNOrDKlwxXe75er4GB4GHE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012114466921-16skmngig9lddt6iivh6c7v93f3n2pb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package company.phuminh.com.foodeat;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import company.phuminh.com.foodeat.Common.Common;
 import company.phuminh.com.foodeat.Model.User;
 
 public class SignInActivity extends AppCompatActivity {
@@ -47,7 +49,12 @@ public class SignInActivity extends AppCompatActivity {
                             // get user infomation
                             User user = dataSnapshot.child(editPhone.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals(editPassWord.getText().toString())) {
-                                Toast.makeText(SignInActivity.this, "ok", Toast.LENGTH_SHORT).show();
+
+                                Intent homeintent = new Intent(SignInActivity.this, HomeActivity.class);
+                                Common.currentUser = user;
+                                startActivity(homeintent);
+                                finish();
+
                             } else
                                 Toast.makeText(SignInActivity.this, "no ok", Toast.LENGTH_SHORT).show();
                         }else Toast.makeText(SignInActivity.this, "no exit", Toast.LENGTH_SHORT).show();

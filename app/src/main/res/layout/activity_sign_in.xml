@@ -35,7 +35,7 @@
             android:id="@+id/editPassWord"
             android:hint="Name"
             android:textColor="@android:color/white"
-            android:text="0937173363"
+            android:text="123456"
             android:textColorHint="@android:color/white"
             android:textSize="34sp"
             android:inputType="numberPassword"

@@ -1,5 +1,6 @@
 package company.phuminh.com.foodeat;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -62,7 +63,10 @@ public class FoodListActivity extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, Boolean isClick) {
-                        Toast.makeText(FoodListActivity.this, "" + food.getName(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(FoodListActivity.this, FoodDetailActivity.class);
+                        intent.putExtra("FoodId", adapter.getRef(position).getKey());
+                        startActivity(intent);
+
                     }
                 });
             }

@@ -4,6 +4,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import company.phuminh.com.foodeat.Database.Database;
 import company.phuminh.com.foodeat.Model.Food;
+import company.phuminh.com.foodeat.Model.Order;
 
 public class FoodDetailActivity extends AppCompatActivity {
 
@@ -27,6 +30,8 @@ public class FoodDetailActivity extends AppCompatActivity {
     String food_id = "";
     FirebaseDatabase database;
     DatabaseReference food;
+    Food food_curent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,20 +59,34 @@ public class FoodDetailActivity extends AppCompatActivity {
         if(!food_id.isEmpty()){
             getDetailFood(food_id);
         }
+
+        btrCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Database(FoodDetailActivity.this).addTocart(new Order(
+                        food_id,
+                        food_curent.getName(),
+                        numberButton.getNumber(),
+                        food_curent.getPrice(),
+                        food_curent.getDiscount()
+                ));
+            }
+        });
+
     }
 
     private void getDetailFood(final String food_id) {
         food.child(food_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Food food = dataSnapshot.getValue(Food.class);
+                 food_curent = dataSnapshot.getValue(Food.class);
                 Picasso.with(getBaseContext())
-                        .load(food.getImage())
+                        .load(food_curent.getImage())
                         .into(food_image);
-                collapsingToolbarLayout.setTitle(food.getName());
-                food_price.setText(food.getPrice());
-                food_name.setText(food.getName());
-                food_description.setText(food.getDescription());
+                collapsingToolbarLayout.setTitle(food_curent.getName());
+                food_price.setText(food_curent.getPrice());
+                food_name.setText(food_curent.getName());
+                food_description.setText(food_curent.getDescription());
             }
 
             @Override

@@ -48,6 +48,7 @@ public class SignInActivity extends AppCompatActivity {
                             mDialog.dismiss();
                             // get user infomation
                             User user = dataSnapshot.child(editPhone.getText().toString()).getValue(User.class);
+                            user.setPhone(editPhone.getText().toString());
                             if (user.getPassword().equals(editPassWord.getText().toString())) {
 
                                 Intent homeintent = new Intent(SignInActivity.this, HomeActivity.class);

@@ -136,13 +136,17 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_menu) {
             // Handle the camera action
         } else if (id == R.id.nav_cart) {
-
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_order) {
-
+            Intent intent = new Intent(HomeActivity.this, OrderStatusActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_view) {
 
         } else if (id == R.id.nav_logout) {
-
+            Intent intent = new Intent(HomeActivity.this, SignInActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

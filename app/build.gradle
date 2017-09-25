@@ -49,5 +49,6 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:2.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.mancj:MaterialSearchBar:0.7.1'
 }
 apply plugin: 'com.google.gms.google-services'
